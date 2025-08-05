@@ -1,6 +1,7 @@
 import tkinter as tk
-from tkinter import filedialog, simpledialog
+from tkinter import filedialog, simpledialog, messagebox
 from PIL import Image, ImageTk
+import json
 
 class PolygonTool:
     def __init__(self, root):
@@ -30,13 +31,18 @@ class PolygonTool:
         tk.Button(btn_frame, text="Bild laden", command=self.load_image).pack(side=tk.LEFT, padx=5)
         tk.Button(btn_frame, text="Zurücksetzen", command=self.reset).pack(side=tk.LEFT, padx=5)
         tk.Button(btn_frame, text="Befehl ausgeben", command=self.export_command).pack(side=tk.LEFT, padx=5)
-        tk.Button(btn_frame, text="Clear", command=self.clear).pack(side=tk.LEFT, padx = 5)
+        tk.Button(btn_frame, text="Leeren", command=self.clear).pack(side=tk.LEFT, padx = 5)
+        tk.Button(btn_frame, text="Speichern", command=self.export).pack(side=tk.LEFT, padx=5)
 
         self.output = tk.Text(root, height=4, font=("Courier", 10))
         self.output.pack(fill=tk.X)
 
         self.canvas.bind("<Button-1>", self.add_point)
         self.canvas.bind("<Button-3>", self.saycoordinates)
+        self.polygons = {}
+        self.listOfCapitals = []
+        self.listOfStateCapitals = []
+        self.cities = {}
     def load_image(self):
         filepath = filedialog.askopenfilename(filetypes=[("Bilder", "*.png;*.jpg;*.jpeg;*.gif")])
         if not filepath:
@@ -65,9 +71,16 @@ class PolygonTool:
         self.reset(clear_image=False)
         self.canvas.create_image(offset_x, offset_y, anchor=tk.NW, image=self.tk_image)
 
-        # <-- HIER: Zustände zeichnen, wenn das Bild geladen ist
-        self.draw_states()
-
+        
+        
+    def export(self):
+        path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON-Dateien", "*.json")], title="Wo sollen die Länder gespeichert werden?")
+        with open(path, mode="w", encoding="utf-8") as f:
+            json.dump(self.polygons, f, indent=4, ensure_ascii=True)
+        path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON-Dateien", "*.json")], title="Wo sollen die Städte gespeichert werden?")
+        with open(path, mode="w", encoding="utf-8") as f:
+            json.dump([self.listOfCapitals, self.listOfStateCapitals, self.cities], f, indent=4, ensure_ascii=True)
+        messagebox.showinfo("Gespeichert", "Die Dateien wurden erfolgreich gespeichert!")
     
 
 
@@ -87,7 +100,22 @@ class PolygonTool:
         # Ausgabe ins Textfeld
         self.output.insert(tk.END, f'\n"{name}": {{\n "place": ({x_real}, {y_real}) \n}},')
 
+        capital = messagebox.askyesno("Hauptstadt", f"Soll {name} die Hauptstadt eines Landes sein?")
+        if capital == False:
+            stateCapital = messagebox.askyesno("Hauptstadt einer Region", f"Soll {name} die Hauptstadt einer Region sein?")
+            if stateCapital == True:
+                self.listOfStateCapitals.append(name.replace(" ", "_"))
 
+        elif capital == True:
+            self.listOfCapitals.append(name.replace(" ", "_"))
+        else:
+            print("Es ist ein Fehler aufgetreten!")
+            
+        self.cities[name.replace(" ", "_")] = {"place": [x_real, y_real]}
+        print(self.cities)
+        print(self.listOfStateCapitals)
+        print(self.listOfCapitals)
+            
     def add_point(self, event):
         x_canvas, y_canvas = event.x, event.y
         ox, oy = self.image_offset
@@ -145,9 +173,12 @@ class PolygonTool:
 
         # Eintrag als Dictionary-Zeile im Stil von `states = {...}`
         entry = f'"{name}": {{\n    "points": {flat_points},\n    "color": "{color}"\n}},\n'
-
+        self.polygons[f"{name}"] = {"points": flat_points, "color": f"{color}"}
         # Ausgabe ins Textfeld
         self.output.insert(tk.END, f"\n{entry}\n")
+
+
+
 
         # Punkte löschen
         self.clear()
