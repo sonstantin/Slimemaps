@@ -79,7 +79,7 @@ class PolygonTool:
 
         x_real = int((x_canvas - ox) / self.scale)
         y_real = int((y_canvas - oy) / self.scale)
-        name = simpledialog.askstring("Name", "Was soll der Name sein?")
+        name = simpledialog.askstring("Name", "Was soll der Name sein?").replace(" ", "_")
         
         # Punkt auf Canvas zeichnen (kleiner roter Kreis)
         self.canvas.create_oval(x_canvas-3, y_canvas-3, x_canvas+3, y_canvas+3, fill="red")
@@ -129,7 +129,7 @@ class PolygonTool:
             return
 
         # Name abfragen
-        name = simpledialog.askstring("Name eingeben", "Name des neuen Gebiets:")
+        name = simpledialog.askstring("Name eingeben", "Name des neuen Gebiets:").replace(" ", "_")
         if not name:
             self.output.insert(tk.END, "Kein Name eingegeben – abgebrochen.\n")
             return
