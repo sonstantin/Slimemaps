@@ -79,7 +79,7 @@ class PolygonTool:
             with open(path, mode="w", encoding="utf-8") as f:
                 json.dump(self.polygons, f, indent=4, ensure_ascii=True)
         path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON-Dateien", "*.json")], title="Wo sollen die Städte gespeichert werden?")
-        if path:
+        if path and self.cities:
             with open(path, mode="w", encoding="utf-8") as f:
                 json.dump([self.listOfCapitals, self.listOfStateCapitals, self.cities], f, indent=4, ensure_ascii=True)
         messagebox.showinfo("Gespeichert", "Die Dateien wurden erfolgreich gespeichert!")
