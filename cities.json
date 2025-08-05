@@ -1,0 +1,234 @@
+[
+    ["Norum", "Orkonum"],
+    ["Watino", "Lapitschu", "Asinovidum", "Onol", "Lono", "Verbindo", "Aro", "Aroino", "Aroinaronoaro", "Voda", "Itochame", "Ka", "Suedos", "Tiso", "Völö", "Molia", "Elvadorey", "Aryptikos", "Durnhallo", "Troston_Banala_iv_Maima", "Shattrah", "Salve_de_Mis", "Bamberg", "Titana", "Porta_de_Nolo"],
+    {
+        "Norum": {
+        "place": [405, 537] 
+        },
+        "Havensta": {
+        "place": [406, 543] 
+        },
+        "Nordo Norum": {
+        "place": [393, 508] 
+        },
+        "Neosta": {
+        "place": [397, 591] 
+        },
+        "Nova Norum": {
+        "place": [384, 633] 
+        },
+        "Vulcanos": {
+        "place": [418, 622] 
+        },
+        "Watino": {
+        "place": [393, 709] 
+        },
+        "Vocca Nord": {
+        "place": [418, 760] 
+        },
+        "Alexandros": {
+        "place": [481, 755] 
+        },
+        "Lapitschu": {
+        "place": [482, 646] 
+        },
+        "Lagopitschu": {
+        "place": [478, 630] 
+        },
+        "Asinovidum": {
+        "place": [522, 384] 
+        },
+        "Onol": {
+        "place": [522, 472] 
+        },
+        "Lono": {
+        "place": [517, 528] 
+        },
+        "Kleinrom": {
+        "place": [545, 600] 
+        },
+        "Omikron": {
+        "place": [556, 579] 
+        },
+        "Miorago": {
+        "place": [661, 382] 
+        },
+        "Porta_de_Nolo": {
+        "place": [693, 369] 
+        },
+        "Porta_de_Memalo": {
+        "place": [767, 365] 
+        },
+        "Orgrimmar": {
+        "place": [788, 407] 
+        },
+        "Krestonum_Hareo": {
+        "place": [714, 407] 
+        },
+        "Garabesk": {
+        "place": [727, 449] 
+        },
+        "Elvadorey": {
+        "place": [733, 510] 
+        },
+        "Gabio": {
+        "place": [762, 554] 
+        },
+        "Zora_Hareo": {
+        "place": [764, 578] 
+        },
+        "Zora": {
+        "place": [758, 591] 
+        },
+        "Mitkro": {
+        "place": [713, 623] 
+        },
+        "Verbindo": {
+        "place": [646, 612] 
+        },
+        "Canalos": {
+        "place": [598, 773] 
+        },
+        "Suedos": {
+        "place": [597, 786] 
+        },
+        "Vocca Süd": {
+        "place": [421, 780] 
+        },
+        "Ali": {
+        "place": [460, 823] 
+        },
+        "Alikanasum": {
+        "place": [493, 851] 
+        },
+        "Ka": {
+        "place": [583, 903] 
+        },
+        "Na": {
+        "place": [636, 864] 
+        },
+        "Sum": {
+        "place": [690, 895] 
+        },
+        "Itochame": {
+        "place": [895, 906] 
+        },
+        "Voda": {
+        "place": [839, 790] 
+        },
+        "Molia": {
+        "place": [730, 759] 
+        },
+        "Talos": {
+        "place": [788, 691] 
+        },
+        "Aro": {
+        "place": [772, 683] 
+        },
+        "Aroino": {
+        "place": [849, 699] 
+        },
+        "Aroinaronoaro": {
+        "place": [893, 803] 
+        },
+        "Tiso": {
+        "place": [696, 649] 
+        },
+        "Völö": {
+        "place": [651, 660] 
+        },
+        "Voeloe": {
+        "place": [670, 697] 
+        },
+        "Radio": {
+        "place": [627, 725] 
+        },
+        "Ritora_Forta": {
+        "place": [834, 507] 
+        },
+        "Titana": {
+        "place": [865, 298] 
+        },
+        "Ivora": {
+        "place": [799, 291] 
+        },
+        "Tiza_Exodaria": {
+        "place": [684, 301] 
+        },
+        "Amphalo": {
+        "place": [627, 331] 
+        },
+        "Aryptikos": {
+        "place": [568, 335] 
+        },
+        "Retoro": {
+        "place": [596, 313] 
+        },
+        "Larissima": {
+        "place": [538, 214] 
+        },
+        "Gommasi": {
+        "place": [613, 175] 
+        },
+        "Orkonum": {
+        "place": [616, 138] 
+        },
+        "Troston_Banala_iv_Maima": {
+        "place": [535, 75] 
+        },
+        "Sol_Noverima": {
+        "place": [397, 120] 
+        },
+        "Fero": {
+        "place": [481, 147] 
+        },
+        "Hika": {
+        "place": [478, 154] 
+        },
+        "Nova": {
+        "place": [496, 170] 
+        },
+        "Kazamari": {
+        "place": [487, 192] 
+        },
+        "Crocodilandia": {
+        "place": [495, 232] 
+        },
+        "Darnassus": {
+        "place": [482, 258] 
+        },
+        "Fellwell": {
+        "place": [505, 303] 
+        },
+        "Durnhallo": {
+        "place": [473, 330] 
+        },
+        "Shattrah": {
+        "place": [633, 257] 
+        },
+        "Lordeon": {
+        "place": [754, 240] 
+        },
+        "Tantalona": {
+        "place": [789, 231] 
+        },
+        "Salve_de_Mis": {
+        "place": [836, 213] 
+        },
+        "Storma_Vinda": {
+        "place": [838, 138] 
+        },
+        "Bamberg": {
+        "place": [878, 110] 
+        },
+        "Prudmora": {
+        "place": [778, 170] 
+        },
+        "Minera": {
+        "place": [732, 148] 
+        },
+        "Dazaran": {
+        "place": [747, 203] 
+        }
+    }
+]
