@@ -34,7 +34,8 @@ class MolyoMaps:
         # Polygon zeichnen
         self.selected = ""
 
-        self.cities = {"Norum": {
+        self.cities = {
+        "Norum": {
         "place": (405, 537) 
         },
         "Havensta": {
@@ -85,16 +86,16 @@ class MolyoMaps:
         "Miorago": {
         "place": (661, 382) 
         },
-        "Porta de Nolo": {
+        "Porta_de_Nolo": {
         "place": (693, 369) 
         },
-        "Porta de Memalo": {
+        "Porta_de_Memalo": {
         "place": (767, 365) 
         },
         "Orgrimmar": {
         "place": (788, 407) 
         },
-        "Krestonum Hareo": {
+        "Krestonum_Hareo": {
         "place": (714, 407) 
         },
         "Garabesk": {
@@ -106,7 +107,7 @@ class MolyoMaps:
         "Gabio": {
         "place": (762, 554) 
         },
-        "Zora Hareo": {
+        "Zora_Hareo": {
         "place": (764, 578) 
         },
         "Zora": {
@@ -175,7 +176,7 @@ class MolyoMaps:
         "Radio": {
         "place": (627, 725) 
         },
-        "Ritora Forta": {
+        "Ritora_Forta": {
         "place": (834, 507) 
         },
         "Titana": {
@@ -184,7 +185,7 @@ class MolyoMaps:
         "Ivora": {
         "place": (799, 291) 
         },
-        "Tiza Exodaria": {
+        "Tiza_Exodaria": {
         "place": (684, 301) 
         },
         "Amphalo": {
@@ -205,10 +206,10 @@ class MolyoMaps:
         "Orkonum": {
         "place": (616, 138) 
         },
-        "Troston Banala iv Maima": {
+        "Troston_Banala_iv_Maima": {
         "place": (535, 75) 
         },
-        "Sol Noverima": {
+        "Sol_Noverima": {
         "place": (397, 120) 
         },
         "Fero": {
@@ -244,10 +245,10 @@ class MolyoMaps:
         "Tantalona": {
         "place": (789, 231) 
         },
-        "Salve de Mis": {
+        "Salve_de_Mis": {
         "place": (836, 213) 
         },
-        "Storma Vinda": {
+        "Storma_Vinda": {
         "place": (838, 138) 
         },
         "Bamberg": {
@@ -442,26 +443,31 @@ class MolyoMaps:
             tags = self.canvas.gettags(items[0])
             if tags:
                 state_name = tags[0]
+                state_name = state_name.replace("_", " ")
                 messagebox.showinfo("Staat", f"Du hast auf '{state_name}' geklickt.")
 
     def draw(self):
         capitals = ["Norum", "Orkonum"]
-        state_capitals = ["Watino", "Lapitschu", "Asinovidum", "Onol", "Lono", "Verbindo", "Aro", "Aroino", "Aroinaronoaro", "Voda", "Itochame", "Ka", "Suedos", "Tiso", "Völö", "Molia", "Elvadorey", "Aryptikos", "Durnhallo", "Troston Banala iv Maima", "Shattrah", "Salve de Mis", "Bamberg", "Titana", "Porta de Nolo"]
+        state_capitals = ["Watino", "Lapitschu", "Asinovidum", "Onol", "Lono", "Verbindo", "Aro", "Aroino", "Aroinaronoaro", "Voda", "Itochame", "Ka", "Suedos", "Tiso", "Völö", "Molia", "Elvadorey", "Aryptikos", "Durnhallo", "Troston_Banala_iv_Maima", "Shattrah", "Salve_de_Mis", "Bamberg", "Titana", "Porta_de_Nolo"]
         capitalfont = font.Font(weight="bold", family="Arial", size=11, underline=True)
+        for part in state_capitals and capitals:
+            part.replace(" ", "_")
         for name, state in self.states.items():
+            name_with_space = name.replace("_", " ")
             points = state["points"]
             color = state["color"]
 
             self.canvas.create_polygon(points, fill=color, outline="black", width=2, tags=name)
         for name, city in self.cities.items():
+            name_with_space = name.replace("_", " ")
             place = city["place"]
-            self.canvas.create_oval(place[0], place[1], place[0] + 2, place[1] + 2, fill="red", outline="black")
-            if name in capitals:
-                self.canvas.create_text(place[0]-15, place[1], text=name, anchor=tk.E, font=capitalfont)
-            elif name in state_capitals:
-                self.canvas.create_text(place[0]-15, place[1], text=name, anchor=tk.E, font=("Arial", 10, "bold"))
+            self.canvas.create_oval(place[0], place[1], place[0] + 2, place[1] + 2, fill="red", outline="black", tags=name)
+            if name.replace(" ", "_") in capitals:
+                self.canvas.create_text(place[0]-15, place[1], text=name_with_space, anchor=tk.E, font=capitalfont, tags=name)
+            elif name.replace(" ", "_") in state_capitals:
+                self.canvas.create_text(place[0]-15, place[1], text=name_with_space, anchor=tk.E, font=("Arial", 10, "bold"), tags=name)
             else:
-                self.canvas.create_text(place[0]-15, place[1], text=name, anchor=tk.E)
+                self.canvas.create_text(place[0]-15, place[1], text=name_with_space, anchor=tk.E, tags=name)
     
 
     def setparty(self, state):
