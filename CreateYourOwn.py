@@ -75,11 +75,13 @@ class PolygonTool:
         
     def export(self):
         path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON-Dateien", "*.json")], title="Wo sollen die Länder gespeichert werden?")
-        with open(path, mode="w", encoding="utf-8") as f:
-            json.dump(self.polygons, f, indent=4, ensure_ascii=True)
+        if path:
+            with open(path, mode="w", encoding="utf-8") as f:
+                json.dump(self.polygons, f, indent=4, ensure_ascii=True)
         path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON-Dateien", "*.json")], title="Wo sollen die Städte gespeichert werden?")
-        with open(path, mode="w", encoding="utf-8") as f:
-            json.dump([self.listOfCapitals, self.listOfStateCapitals, self.cities], f, indent=4, ensure_ascii=True)
+        if path:
+            with open(path, mode="w", encoding="utf-8") as f:
+                json.dump([self.listOfCapitals, self.listOfStateCapitals, self.cities], f, indent=4, ensure_ascii=True)
         messagebox.showinfo("Gespeichert", "Die Dateien wurden erfolgreich gespeichert!")
     
 
